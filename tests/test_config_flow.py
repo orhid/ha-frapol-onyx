@@ -6,7 +6,7 @@ from homeassistant.data_entry_flow import FlowResultType
 from custom_components.frapol_onyx.const import DOMAIN
 
 
-async def test_form(hass, mock_hub):
+async def test_form(hass, mock_hub, enable_custom_integrations):
     """Test successful initial configuration."""
 
     result = await hass.config_entries.flow.async_init(
@@ -19,7 +19,7 @@ async def test_form(hass, mock_hub):
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"],
         user_input={
-            "host": "172.27.8.10",
+            "host": "192.168.1.254",
             "port": 4196,
         },
     )
@@ -32,7 +32,7 @@ async def test_form(hass, mock_hub):
     mock_hub.async_close.assert_awaited_once()
 
 
-async def test_cannot_connect(hass, mock_hub):
+async def test_cannot_connect(hass, mock_hub, enable_custom_integrations):
     """Test connection failure."""
 
     mock_hub.async_connect.side_effect = OSError("Connection refused")
@@ -45,7 +45,7 @@ async def test_cannot_connect(hass, mock_hub):
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"],
         user_input={
-            "host": "172.27.8.10",
+            "host": "192.168.1.254",
             "port": 4196,
         },
     )
@@ -54,17 +54,17 @@ async def test_cannot_connect(hass, mock_hub):
     assert result["errors"]["base"] == "cannot_connect"
 
 
-async def test_duplicate_device(hass, mock_hub):
+async def test_duplicate_device(hass, mock_hub, enable_custom_integrations):
     """Test duplicate device detection."""
 
-    from pytest_homeassistant.common import MockConfigEntry
+    from pytest_homeassistant_custom_component.common import MockConfigEntry
 
     existing = MockConfigEntry(
         domain=DOMAIN,
         title="Frapol Onyx",
-        unique_id="172.27.8.10:4196:1",
+        unique_id="192.168.1.254:4196:1",
         data={
-            "host": "172.27.8.10",
+            "host": "192.168.1.254",
             "port": 4196,
         },
     )
@@ -79,7 +79,7 @@ async def test_duplicate_device(hass, mock_hub):
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"],
         user_input={
-            "host": "172.27.8.10",
+            "host": "192.168.1.254",
             "port": 4196,
         },
     )

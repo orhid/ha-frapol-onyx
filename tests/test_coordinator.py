@@ -42,6 +42,7 @@ async def test_temperature_decoding(hass):
         hass,
         hub,
         30,
+        device_id="test-frapol-onyx",
     )
 
     data = await coordinator._async_update_data()
@@ -76,6 +77,7 @@ async def test_power_off(hass):
         hass,
         MockHub(values),
         30,
+        device_id="test-frapol-onyx",
     )
 
     data = await coordinator._async_update_data()
@@ -93,6 +95,7 @@ async def test_modbus_failure(hass):
         hass,
         hub,
         30,
+        device_id="test-frapol-onyx",
     )
 
     with pytest.raises(UpdateFailed):

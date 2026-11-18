@@ -49,11 +49,7 @@ class FrapolConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 await hub.async_close()
 
             if not errors:
-                unique_id = (
-                    f"{user_input[CONF_HOST]}:"
-                    f"{user_input[CONF_PORT]}"
-                    f":{DEFAULT_SLAVE}"
-                )
+                unique_id = f"{user_input[CONF_HOST]}:{user_input[CONF_PORT]}:{DEFAULT_SLAVE}"
 
                 await self.async_set_unique_id(unique_id)
                 self._abort_if_unique_id_configured()
@@ -63,16 +59,18 @@ class FrapolConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     data=user_input,
                 )
 
-        schema = vol.Schema({
-            vol.Required(
-                CONF_HOST,
-                default="192.168.1.254",
-            ): str,
-            vol.Required(
-                CONF_PORT,
-                default=DEFAULT_PORT,
-            ): vol.All(int, vol.Range(min=1, max=65535)),
-        })
+        schema = vol.Schema(
+            {
+                vol.Required(
+                    CONF_HOST,
+                    default="192.168.1.254",
+                ): str,
+                vol.Required(
+                    CONF_PORT,
+                    default=DEFAULT_PORT,
+                ): vol.All(int, vol.Range(min=1, max=65535)),
+            }
+        )
 
         return self.async_show_form(
             step_id="user",
@@ -101,30 +99,29 @@ class FrapolOptionsFlow(config_entries.OptionsFlowWithReload):
 
         options = self.config_entry.options
 
-        schema = vol.Schema({
-            vol.Optional(
-                CONF_SLAVE,
-                default=options.get(CONF_SLAVE, DEFAULT_SLAVE),
-            ): vol.All(int, vol.Range(min=1, max=247)),
-
-            vol.Optional(
-                CONF_TIMEOUT,
-                default=options.get(CONF_TIMEOUT, DEFAULT_TIMEOUT),
-            ): vol.All(int, vol.Range(min=1, max=60)),
-
-            vol.Optional(
-                CONF_RETRIES,
-                default=options.get(CONF_RETRIES, DEFAULT_RETRIES),
-            ): vol.All(int, vol.Range(min=0, max=10)),
-
-            vol.Optional(
-                CONF_SCAN_INTERVAL,
-                default=options.get(
+        schema = vol.Schema(
+            {
+                vol.Optional(
+                    CONF_SLAVE,
+                    default=options.get(CONF_SLAVE, DEFAULT_SLAVE),
+                ): vol.All(int, vol.Range(min=1, max=247)),
+                vol.Optional(
+                    CONF_TIMEOUT,
+                    default=options.get(CONF_TIMEOUT, DEFAULT_TIMEOUT),
+                ): vol.All(int, vol.Range(min=1, max=60)),
+                vol.Optional(
+                    CONF_RETRIES,
+                    default=options.get(CONF_RETRIES, DEFAULT_RETRIES),
+                ): vol.All(int, vol.Range(min=0, max=10)),
+                vol.Optional(
                     CONF_SCAN_INTERVAL,
-                    DEFAULT_SCAN_INTERVAL,
-                ),
-            ): vol.All(int, vol.Range(min=5, max=3600)),
-        })
+                    default=options.get(
+                        CONF_SCAN_INTERVAL,
+                        DEFAULT_SCAN_INTERVAL,
+                    ),
+                ): vol.All(int, vol.Range(min=5, max=3600)),
+            }
+        )
 
         return self.async_show_form(
             step_id="init",

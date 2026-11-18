@@ -33,11 +33,11 @@ async def async_setup_entry(
         timeout=options.get(CONF_TIMEOUT, DEFAULT_TIMEOUT),
         retries=options.get(CONF_RETRIES, DEFAULT_RETRIES),
     )
-    
+
     entry.async_on_unload(hub.async_close)
-    
+
     await hub.async_connect()
-    
+
     coordinator = FrapolCoordinator(
         hass,
         hub,
@@ -65,4 +65,3 @@ async def async_unload_entry(
         entry,
         PLATFORMS,
     )
-

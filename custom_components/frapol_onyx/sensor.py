@@ -20,10 +20,7 @@ async def async_setup_entry(
 
     coordinator = entry.runtime_data
 
-    async_add_entities(
-        FrapolSensor(coordinator, definition)
-        for definition in SENSORS
-    )
+    async_add_entities(FrapolSensor(coordinator, definition) for definition in SENSORS)
 
 
 class FrapolSensor(FrapolEntity, SensorEntity):
@@ -51,6 +48,4 @@ class FrapolSensor(FrapolEntity, SensorEntity):
     @property
     def native_value(self):
         """Return sensor value."""
-        return self.coordinator.data.get(
-            self.entity_description.key
-        )
+        return self.coordinator.data.get(self.entity_description.key)

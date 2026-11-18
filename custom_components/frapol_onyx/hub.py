@@ -53,9 +53,7 @@ class FrapolHub:
             )
 
             if result.isError():
-                raise ModbusException(
-                    f"Error reading register {address}: {result}"
-                )
+                raise ModbusException(f"Error reading register {address}: {result}")
 
             return result.registers[0]
 
@@ -77,6 +75,4 @@ class FrapolHub:
             )
 
             if result.isError():
-                raise ModbusException(
-                    f"Error writing register {address}: {result}"
-                )
+                raise ModbusException(f"Error writing register {address}: {result}")

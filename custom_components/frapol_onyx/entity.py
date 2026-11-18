@@ -25,4 +25,3 @@ class FrapolEntity(CoordinatorEntity[FrapolCoordinator]):
             manufacturer=MANUFACTURER,
             model=MODEL,
         )
-

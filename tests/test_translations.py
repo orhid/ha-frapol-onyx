@@ -25,13 +25,9 @@ def test_all_sensors_have_translations():
         entities = translations["entity"]["sensor"]
 
         for sensor in SENSORS:
-            assert sensor.key in entities, (
-                f"Missing {language} translation: {sensor.key}"
-            )
+            assert sensor.key in entities, f"Missing {language} translation: {sensor.key}"
 
-            assert entities[sensor.key].get("name"), (
-                f"Missing {language} name: {sensor.key}"
-            )
+            assert entities[sensor.key].get("name"), f"Missing {language} name: {sensor.key}"
 
 
 def test_power_switch_has_translations():

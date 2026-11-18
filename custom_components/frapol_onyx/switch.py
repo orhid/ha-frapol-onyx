@@ -19,14 +19,15 @@ async def async_setup_entry(
 
     coordinator = entry.runtime_data
 
-    async_add_entities([
-        FrapolPowerSwitch(coordinator),
-    ])
+    async_add_entities(
+        [
+            FrapolPowerSwitch(coordinator),
+        ]
+    )
 
 
 class FrapolPowerSwitch(FrapolEntity, SwitchEntity):
     """Frapol unit power switch."""
-
 
     def __init__(self, coordinator):
         super().__init__(
@@ -34,7 +35,6 @@ class FrapolPowerSwitch(FrapolEntity, SwitchEntity):
             "unit_power",
         )
         self._attr_translation_key = "unit_power"
-
 
     @property
     def is_on(self) -> bool:
@@ -56,4 +56,3 @@ class FrapolPowerSwitch(FrapolEntity, SwitchEntity):
             0,
         )
         await self.coordinator.async_request_refresh()
-        

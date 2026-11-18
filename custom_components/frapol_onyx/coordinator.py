@@ -42,9 +42,7 @@ class FrapolCoordinator(DataUpdateCoordinator):
 
         try:
             for sensor in SENSORS:
-                raw_value = await self.hub.async_read_register(
-                    sensor.address
-                )
+                raw_value = await self.hub.async_read_register(sensor.address)
 
                 if sensor.signed and raw_value >= 32768:
                     raw_value -= 65536
@@ -57,13 +55,9 @@ class FrapolCoordinator(DataUpdateCoordinator):
                 )
 
             # Power status
-            data["power"] = (
-                await self.hub.async_read_register(POWER_REGISTER)
-            ) == 1
+            data["power"] = (await self.hub.async_read_register(POWER_REGISTER)) == 1
 
             return data
 
         except (ModbusException, ConnectionError, OSError) as err:
-            raise UpdateFailed(
-                f"Error communicating with Frapol Onyx: {err}"
-            ) from err
+            raise UpdateFailed(f"Error communicating with Frapol Onyx: {err}") from err
