@@ -1,0 +1,42 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--cov=custom_components.frapol_onyx",
+    "--cov-report=term-missing",
+]
+
+[tool.coverage.run]
+source = ["custom_components.frapol_onyx"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 70
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "SIM",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+

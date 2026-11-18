@@ -1,0 +1,65 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Frapol Onyx",
+        "description": "Enter the IP address and TCP port of your Modbus gateway.",
+        "data": {
+          "host": "Gateway IP address",
+          "port": "TCP port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to the gateway or read the device register."
+    },
+    "abort": {
+      "already_configured": "This Frapol device is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Advanced settings",
+        "description": "These settings control Modbus communication with your Frapol unit.",
+        "data": {
+          "slave": "Modbus slave ID",
+          "timeout": "Connection timeout (seconds)",
+          "retries": "Connection retries",
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "comfort_temperature": {
+        "name": "Comfort temperature"
+      },
+      "outdoor_temperature": {
+        "name": "Outdoor temperature"
+      },
+      "leading_temperature": {
+        "name": "Leading temperature"
+      },
+      "intake_temperature": {
+        "name": "Intake temperature"
+      },
+      "exhaust_temperature": {
+        "name": "Exhaust temperature"
+      },
+      "supply_temperature": {
+        "name": "Supply temperature"
+      },
+      "extract_temperature": {
+        "name": "Extract temperature"
+      }
+    },
+    "switch": {
+      "unit_power": {
+        "name": "Unit power"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,64 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Połącz z centralą Frapol Onyx",
+        "description": "Podaj adres IP i port TCP bramki Modbus.",
+        "data": {
+          "host": "Adres IP bramki",
+          "port": "Port TCP"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nie można połączyć się z bramką lub odczytać rejestru urządzenia."
+    },
+    "abort": {
+      "already_configured": "Ta centrala Frapol jest już skonfigurowana."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ustawienia zaawansowane",
+        "description": "Te ustawienia określają sposób komunikacji Modbus z centralą Frapol.",
+        "data": {
+          "slave": "Adres urządzenia Modbus (Slave ID)",
+          "timeout": "Limit czasu połączenia (sekundy)",
+          "retries": "Liczba ponownych prób połączenia",
+          "scan_interval": "Interwał odczytu danych (sekundy)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "comfort_temperature": {
+        "name": "Temperatura komfortowa"
+      },
+      "outdoor_temperature": {
+        "name": "Temperatura zewnętrzna"
+      },
+      "leading_temperature": {
+        "name": "Temperatura nawiewu przed nagrzewnicą"
+      },
+      "intake_temperature": {
+        "name": "Temperatura czerpni"
+      },
+      "exhaust_temperature": {
+        "name": "Temperatura wyrzutni"
+      },
+      "supply_temperature": {
+        "name": "Temperatura nawiewu"
+      },
+      "extract_temperature": {
+        "name": "Temperatura wywiewu"
+      }
+    },
+    "switch": {
+      "unit_power": {
+        "name": "Zasilanie centrali"
+      }
+    }
+  }
+}

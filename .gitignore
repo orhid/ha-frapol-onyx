@@ -1,0 +1,165 @@
+# ============================================================
+# Python bytecode and caches
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pyre/
+.dmypy.json
+dmypy.json
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+
+# ============================================================
+# Python packaging and build output
+# ============================================================
+build/
+dist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+MANIFEST
+*.manifest
+*.spec
+
+# ============================================================
+# Virtual environments
+# ============================================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.python-version.local
+
+# ============================================================
+# Jupyter and interactive environments
+# ============================================================
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ============================================================
+# Environment variables and secrets
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.yaml
+secrets.yml
+credentials.json
+credentials.yaml
+credentials.yml
+token
+token.*
+*.secret
+
+# ============================================================
+# Home Assistant local data and configuration
+# ============================================================
+.homeassistant/
+.storage/
+.cloud/
+.cloud/
+deps/
+tts/
+www/community/
+*.db
+*.db-shm
+*.db-wal
+home-assistant.log
+home-assistant.log.*
+OZW_Log.txt
+
+# ============================================================
+# Test and temporary files
+# ============================================================
+.tox/
+.nox/
+.cache/
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*.log
+
+# ============================================================
+# IDEs and editors
+# ============================================================
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============================================================
+# Operating systems
+# ============================================================
+.Trashes
+.AppleDouble
+.LSOverride
+._*
+
+# ============================================================
+# Documentation build output
+# ============================================================
+_site/
+site/
+.tox/
+docs/_build/
+
+# ============================================================
+# Local development and debugging
+# ============================================================
+*.prof
+*.profile
+*.pid
+*.seed
+debug.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ============================================================
+# Generated files
+# ============================================================
+*.generated.py
+*.min.js
+*.map
+
+# ============================================================
+# Local test configuration
+# ============================================================
+pytest.local.ini
+config.local.yaml
+configuration.local.yaml
+
+internal-test.sh

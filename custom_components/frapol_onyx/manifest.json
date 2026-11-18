@@ -1,0 +1,15 @@
+{
+  "domain": "frapol_onyx",
+  "name": "Frapol Onyx",
+  "codeowners": [
+    "@YOUR_GITHUB_USERNAME"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/orhid/ha-frapol-onyx",
+  "issue_tracker": "https://github.com/orhid/ha-frapol-onyx/issues",
+  "iot_class": "local_polling",
+  "requirements": [
+    "pymodbus>=3.11.1,<4.0.0"
+  ],
+  "version": "0.1.0"
+}

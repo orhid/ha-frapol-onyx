@@ -1,0 +1,19 @@
+DOMAIN = "frapol_onyx"
+
+DEFAULT_PORT = 4196
+DEFAULT_SLAVE = 1
+DEFAULT_TIMEOUT = 5
+DEFAULT_RETRIES = 3
+DEFAULT_SCAN_INTERVAL = 30
+
+CONF_HOST = "host"
+CONF_PORT = "port"
+CONF_SLAVE = "slave"
+CONF_TIMEOUT = "timeout"
+CONF_RETRIES = "retries"
+CONF_SCAN_INTERVAL = "scan_interval"
+
+PLATFORMS = ["sensor", "switch"]
+
+MANUFACTURER = "Frapol"
+MODEL = "Onyx"
