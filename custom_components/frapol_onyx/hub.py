@@ -1,5 +1,5 @@
-import logging
 import asyncio
+import logging
 
 from pymodbus.client import AsyncModbusTcpClient
 from pymodbus.exceptions import ModbusException
@@ -42,9 +42,8 @@ class FrapolHub:
     async def async_read_register(self, address: int) -> int:
         """Read one holding register."""
         async with self._lock:
-            if not self.client.connected:
-                if not await self.client.connect():
-                    raise ConnectionError("Modbus connection unavailable")
+            if not self.client.connected and not await self.client.connect():
+                raise ConnectionError("Modbus connection unavailable")
 
             result = await self.client.read_holding_registers(
                 address=address,
@@ -64,9 +63,8 @@ class FrapolHub:
     ) -> None:
         """Write one holding register."""
         async with self._lock:
-            if not self.client.connected:
-                if not await self.client.connect():
-                    raise ConnectionError("Modbus connection unavailable")
+            if not self.client.connected and not await self.client.connect():
+                raise ConnectionError("Modbus connection unavailable")
 
             result = await self.client.write_register(
                 address=address,

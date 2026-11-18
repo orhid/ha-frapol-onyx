@@ -1,20 +1,19 @@
 import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.core import callback
 
 from .const import (
-    DOMAIN,
-    CONF_SLAVE,
-    CONF_TIMEOUT,
     CONF_RETRIES,
     CONF_SCAN_INTERVAL,
+    CONF_SLAVE,
+    CONF_TIMEOUT,
     DEFAULT_PORT,
-    DEFAULT_SLAVE,
-    DEFAULT_TIMEOUT,
     DEFAULT_RETRIES,
     DEFAULT_SCAN_INTERVAL,
+    DEFAULT_SLAVE,
+    DEFAULT_TIMEOUT,
+    DOMAIN,
 )
 from .hub import FrapolHub
 

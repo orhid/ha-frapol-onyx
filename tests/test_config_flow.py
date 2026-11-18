@@ -1,4 +1,3 @@
-from unittest.mock import patch
 
 from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResultType

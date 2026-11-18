@@ -2,13 +2,12 @@ from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
 )
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .definitions import SENSORS
 from .entity import FrapolEntity
-from .coordinator import FrapolCoordinator
 
 
 async def async_setup_entry(

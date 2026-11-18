@@ -2,20 +2,20 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
 from .const import (
-    PLATFORMS,
     CONF_HOST,
     CONF_PORT,
-    CONF_SLAVE,
-    CONF_TIMEOUT,
     CONF_RETRIES,
     CONF_SCAN_INTERVAL,
-    DEFAULT_SLAVE,
-    DEFAULT_TIMEOUT,
+    CONF_SLAVE,
+    CONF_TIMEOUT,
     DEFAULT_RETRIES,
     DEFAULT_SCAN_INTERVAL,
+    DEFAULT_SLAVE,
+    DEFAULT_TIMEOUT,
+    PLATFORMS,
 )
-from .hub import FrapolHub
 from .coordinator import FrapolCoordinator
+from .hub import FrapolHub
 
 
 async def async_setup_entry(

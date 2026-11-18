@@ -6,11 +6,10 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
 )
-
 from pymodbus.exceptions import ModbusException
 
 from .const import DOMAIN
-from .definitions import SENSORS, POWER_REGISTER
+from .definitions import POWER_REGISTER, SENSORS
 from .hub import FrapolHub
 
 _LOGGER = logging.getLogger(__name__)

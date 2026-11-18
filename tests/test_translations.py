@@ -3,7 +3,6 @@ from pathlib import Path
 
 from custom_components.frapol_onyx.definitions import SENSORS
 
-
 BASE_PATH = Path(__file__).parent.parent / "custom_components" / "frapol_onyx"
 
 
